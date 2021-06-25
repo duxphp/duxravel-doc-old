@@ -1,16 +1,16 @@
 ---
-title: dumi - A doc tool can assist you to develop libraries & write docs.
+title: DuxRavel - 基于 laravel 框架的后台管理系统
 order: 10
 hero:
-  title: dumi
-  desc: 📖 A doc tool can assist you to develop libraries & write docs.
+  title: Duxravel
+  desc: 基于 laravel 为快速开发而生的自定义后台管理系统
   actions:
-    - text: Getting Started
+    - text: 快速开始
       link: /components/foo
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
-    title: Out of the box
-    desc: Elegant default configrations and convention routing assist developers to get started as simple as possible, that focus all attentions on developing libraries & writting docs
+    title: 开箱即用
+    desc: 后台采用统一封装UI，让基础开发者无需使用前端技术即可快速开发，同时集成了基础管理角色、用户、配置等功能，可开箱即开发
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
     title: For developing libraries
     desc: Rich Markdown extensions are not limited to rendering component demos, making component documents not only easy to write and manage, but also beautiful and easy to use
