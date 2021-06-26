@@ -16,7 +16,7 @@ export default defineConfig({
     null,
     {
       title: 'GitHub',
-      path: 'https://github.com/umijs/dumi-template',
+      path: 'https://github.com/duxphp/CMSRavel',
     },
   ],
   locales: [['zh-CN', '中文']],
