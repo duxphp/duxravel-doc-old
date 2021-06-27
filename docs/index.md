@@ -6,7 +6,7 @@ hero:
   desc: 基于 laravel 为快速开发而生的自定义后台管理系统
   actions:
     - text: 阅读文档
-      link: /components/foo
+      link: /guide
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
     title: 开箱即用

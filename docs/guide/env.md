@@ -1,15 +1,8 @@
 ---
 title: 环境搭建
-group:
-  title: 环境搭建
-  order: 1
-group:
-path: /guide
-title: 介绍
 order: 1
+toc: menu
 ---
-
-# 环境搭建
 
 ## windows 环境搭建
 

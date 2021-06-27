@@ -19,6 +19,16 @@ export default defineConfig({
       path: 'https://github.com/duxphp/CMSRavel',
     },
   ],
+  extraBabelPlugins: [
+    [
+      'import',
+      {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: 'css',
+      },
+    ],
+  ],
   locales: [['zh-CN', '中文']],
   // more config: https://d.umijs.org/config
 });
