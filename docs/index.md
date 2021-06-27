@@ -53,6 +53,6 @@ http://localhost:8000
 请访问 [GitHub](https://github.com/duxphp/CMSRavel) 或者加入 qq 群交流
 
 <div>
-  <img data-type="qq" src="/images/qq.jpg" width="300" />
+  <img data-type="qq" src="https://duxphp.github.io/duxravel-doc/images/qq.jpg" width="300" />
   
 </div>
