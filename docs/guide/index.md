@@ -26,7 +26,7 @@ duxravel，名称由 dux 与 laravel 组合而来，是一款以 laravel 框架�
 
 ### 环境准备
 
-首先得准备好 (apache / nginx) + php + composer + redis + mysql 使用环境。
+首先得准备好 php + composer + redis + mysql 使用环境。
 
 并确保 php 版本是 7.4 或以上，mysql 版本是 5.7 或以上，composer 2.0 或以上。
 
@@ -41,4 +41,22 @@ $ composer -v
 Composer version 2.1.3
 ```
 
-当然您也可以使用各类集成环境，windows 环境下推荐 [phpstudy](https://www.xp.cn/)，linux 环境下推荐 [宝塔面板](https://www.bt.cn/)，mac 环境下推荐 [Valet](https://learnku.com/docs/laravel/8.x/valet/9358)，以上推荐均为可免费使用的环境，以上推荐环境搭建请[查看教程](/guide/env)
+### 系统安装
+
+请建立站点目录并运行 composer 命令进行系统安装
+
+```shell
+// 创建目录
+$ mkdir library && cd library
+
+// 安装项目
+$ composer create-project duxphp/ravelcms
+
+// 启动web服务
+$ php artisan serve
+
+// 访问安装向导
+http://localhost:8000
+```
+
+当然您也可以使用各类集成环境进行安装，windows 环境下推荐 [phpstudy](https://www.xp.cn/)，linux 环境下推荐 [宝塔面板](https://www.bt.cn/)，mac 环境下推荐 [Valet](https://learnku.com/docs/laravel/8.x/valet/9358)，以上推荐均为可免费使用的环境，以上推荐环境搭建请[查看教程](/guide/env)
