@@ -45,27 +45,24 @@ Composer version 2.1.3
 请建立站点目录并运行 composer 命令进行系统安装
 
 ```shell
-// 创建目录
+// 创建站点目录
 $ mkdir library && cd library
 
 // 安装项目
-$ composer create-project duxphp/ravelcms
+$ composer create-project duxphp/ravelcms ./
 
-// 启动web服务
-$ php artisan serve
-
-// 访问安装向导
-http://localhost:8000
+// 启动web服务访问安装向导
+http://localhost
 ```
 
-当然您也可以使用各类集成环境进行安装，windows 环境下推荐 [phpstudy](https://www.xp.cn/)，linux 环境下推荐 [宝塔面板](https://www.bt.cn/)，mac 环境下推荐 [Valet](https://learnku.com/docs/laravel/8.x/valet/9358)，以上推荐均为可免费使用的环境，以上推荐环境搭建请[查看教程](/guide/env)
+您也可以使用各类集成环境进行安装，windows 环境下推荐 [phpstudy](https://www.xp.cn/)，linux 环境下推荐 [宝塔面板](https://www.bt.cn/)，mac 环境下推荐 [Valet](https://learnku.com/docs/laravel/8.x/valet/9358)，以上推荐均为可免费使用的环境，以上推荐环境搭建请[查看教程](/guide/env)
 
 ### 后台管理
 
 安装完毕后请进入后台进行基本功能管理，系统安装后会在 `storage` 目录下生成 `installed` 文件用于检测是否安装，可以删除该文件和数据库重新安装。
 
 ```http request
-http://localhost:8000/admin
+http://localhost/admin
 ```
 
 ### 系统升级

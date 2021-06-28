@@ -33,17 +33,14 @@ features:
 基础开发项目使用 Duxravel CMS 项目包含了基础的文章模块
 
 ```bash
-// 创建目录
+// 创建站点目录
 $ mkdir library && cd library
 
 // 安装项目
-$ composer create-project duxphp/ravelcms
+$ composer create-project duxphp/ravelcms ./
 
-// 启动web服务
-$ php artisan serve
-
-// 访问安装向导
-http://localhost:8000
+// 启动web服务访问安装向导
+http://localhost
 ```
 
 更多环境配置方式请参考 [laravel 环境文档](https://learnku.com/docs/laravel/8.x/installation/9354#pretty-urls)
