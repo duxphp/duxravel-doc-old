@@ -16,6 +16,40 @@ toc: menu
 $ php artisan app:make-admin test
 ```
 
+控制基础示例代码如下：
+
+```php
+<?php
+
+namespace Modules\Test\Admin;
+
+use Duxravel\Core\UI\Form;
+use Duxravel\Core\UI\Table;
+
+class Test extends \Modules\System\Admin\Expend
+{
+
+    public string $model = \Modules\Test\Model\Test::class;
+
+    protected function table(): Table
+    {
+        $table = new Table(new $this->model());
+        $table->title('测试');
+        return $table;
+    }
+
+    public function form(int $id = 0): Form
+    {
+        $form = new Form(new $this->model());
+        $form->action(route('admin.test.test.save', ['id' => $id]));
+        $form->title('测试');
+        return $form;
+    }
+
+}
+
+```
+
 ## 控制器继承
 
 后台控制器可以继承以下 2 个类，命令生成的控制器默认继承了扩展控制器。
@@ -339,7 +373,7 @@ Route::group([
     'auth_app' => '测试应用'         // 应用名称
 ], function () {
     Route::group([
-        'auth_group' => '地区数据'  // 功能名称
+        'auth_group' => '测试功能'  // 功能名称
     ], function () {
         Route::get('test', ['uses' => 'Modules\Test\Admin\Test@index', 'desc' => '列表'])->name('admin.test.test');
         Route::post('test/ajax', ['uses' => 'Modules\Test\Admin\Test@ajax', 'desc' => '列表数据'])->name('admin.test.test.ajax');
@@ -355,7 +389,28 @@ Route::group([
 });
 ```
 
-以上代码将每个路由指向到了后台控制器的不同方法。
+以上代码将每个路由指向到了后台控制器的不同方法，我们还可以使用封装类来简化路由的设置。
+
+```php
+
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::group([
+    'prefix' => 'test',             // 应用 url 前缀
+    'auth_app' => '测试应用'         // 应用名称
+], function () {
+    Route::group([
+        'auth_group' => '测试功能'  // 功能名称
+    ], function () {
+        Route::manage(\Modules\Test\Admin\Test::class)->only(['index', 'data', 'page', 'save', 'del', 'recovery', 'clear', 'status'])->make();
+    });
+    // Generate Route Make
+});
+```
+
+简化方法生成的路由与上述示例生成的路由完全一致，您可以查看具体代码实现使用更多的用法。
 
 扩展控制器因包含了自动化 url 功能，路由命名请遵循以下规则命名，同时可以开发人员快速定位控制器文件。
 

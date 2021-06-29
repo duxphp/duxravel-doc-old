@@ -10,10 +10,31 @@ toc: menu
 
 ## 模型生成
 
-使用以下命令生成应用内的模型与数据表，`test` 为指定应用名。
+使用以下命令生成应用内的模型与数据表，`test` 为指定应用名，生成的模型位于应用目录下 `model` 子目录。
 
 ```shell
 $ php artisan app:make-model test
+```
+
+模型基础示例代码如下：
+
+```php
+<?php
+
+namespace Modules\Test\Model;
+
+/**
+ * class Test
+ * @package Modules\Test\Model
+ */
+class Test extends \Duxravel\Core\Model\Base
+{
+
+    protected $table = 'test';
+
+    protected $primaryKey = 'test_id';
+
+}
 ```
 
 ## 模型继承
