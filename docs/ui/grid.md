@@ -1,7 +1,6 @@
 ---
 title: 网格布局
 order: 1
-toc: menu
 ---
 
 ## 基本说明
@@ -10,8 +9,7 @@ toc: menu
 
 行总列数为 12 可以设置每行相加为 12 的多种列宽组合，不指定列宽为平均分配。
 
-```
-<?php
+```php
 $html = \Duxravel\Core\UI\Widget::row(function($row) {
     // 设置列宽度为9
   $row->column(function() {
