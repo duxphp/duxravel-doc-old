@@ -153,6 +153,12 @@ $table->column($name, $label)->status([
 $table->column($name, $label)->toggle(string $field = '', string $url = '', array $params = []);
 ```
 
+可以直接在后台扩展类继承中使用，来快速切换条目状态。
+
+```php
+$table->column('状态', 'status')->toggle('status', 'admin.demo.test.status', ['id' => 'test_id']);
+```
+
 ## 显示进度条
 
 将字段值作为进度条显示，支持 `tailwind` 颜色。
