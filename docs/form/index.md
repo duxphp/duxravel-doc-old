@@ -6,7 +6,9 @@ nav:
   title: 表单
   path: /form
   order: 3
----## 基础开发
+---
+
+## 基础开发
 
 表单组件用于各类后端表单页提交用途，表单组件可支持 `Eloquent` 模型与 `collect` 集合作为数据源。
 
