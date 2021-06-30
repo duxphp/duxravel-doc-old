@@ -8,13 +8,13 @@ toc: menu
 
 目前开发的应用可以提交在 [packagist](https://packagist.org/) 中，应用如果要进行打包安装分为 2 种形式：
 
-- 应用形式 - 使用 `composer` 自定义 `type` 类型来让 duxravel 进行触发安装，安装后的代码存放在 `modules` 目录内。
+- 应用打包 - 使用 `composer` 自定义 `type` 类型来让 duxravel 进行触发安装，安装后的代码存放在 `modules` 目录内。
 
-- 扩展形式 - 使用 `composer` 的 `extra` 扩展参数，安装后需要手动执行数据库合并和数据导入`命令`，安装后的代码存放在 `vendor` 目录内，一般用于自己打包系统让应用成为自带功能。
+- 扩展打包 - 使用 `composer` 的 `extra` 扩展参数，安装后需要手动执行数据库合并和数据导入`命令`，安装后的代码存放在 `vendor` 目录内，一般用于自己打包系统让应用成为自带功能。
 
-- 自由形式 - 使用压缩包直接打包应用数据并进行分享。
+- 自由打包 - 使用压缩包直接打包应用数据并进行分享。
 
-## 应用形式
+## 应用打包
 
 开发者开发的应用存放在 `modules` 下子目录，如果需要将该应用打包提供给他人安装使用则需要进行以下操作。
 
@@ -99,7 +99,7 @@ $ composer require xxxx/xxxx
 
 具体的 `require` 命令请查看 packagist 发布后的地址。
 
-## 扩展形式
+## 扩展打包
 
 ### 建立 git 仓库
 
@@ -195,7 +195,7 @@ $ composer require xxxx/xxxx
 
 在 git 仓库根目录中建立 `Database` 目录用于存放该应用的数据表结构和填充数据，具体数据结构和数据填充类请查阅 laravel 的数据迁移文档。
 
-### 服务提供者
+### 服务提供者类
 
 请在 `src` 目录中创建 `Providers` 目录 并创建 `TestServiceProvider` 类，模板如下：
 
@@ -280,12 +280,12 @@ $ composer require xxxx/xxxx
 
 ```shell
 $ php artisan migrate
-$ php artisan db:seed --class=\\Duxravel\\Test\\Seeders\\TestTableSeeder
+$ php artisan db:seed --class=\\Modules\\Test\\Seeders\\TestTableSeeder
 ```
 
-## 自由形式
+## 自由打包
 
-请按照 `应用形式` 创建数据迁移目录及文件，进行`zip`打包分享，用户解压后按照原结构放置在 `modules` 目录中，并执行以下命令进行安装和清理缓存。
+请按照 `应用打包` 创建数据迁移目录及文件，进行`zip`打包分享，用户解压后按照原结构放置在 `modules` 目录中，并执行以下命令进行安装和清理缓存。
 
 ```shell
 $ php artisan app:install test
