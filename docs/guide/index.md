@@ -55,6 +55,16 @@ $ composer create-project duxphp/ravelcms ./
 http://localhost
 ```
 
+如果发现安装速度慢请使用国内加速，仍选其一执行：
+
+```
+$ composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+
+$ composer config -g repos.packagist composer https://php.cnpkg.org
+
+$ composer config -g repo.packagist composer https://packagist.phpcomposer.com
+```
+
 您也可以使用各类集成环境进行安装，windows 环境下推荐 [phpstudy](https://www.xp.cn/)，linux 环境下推荐 [宝塔面板](https://www.bt.cn/)，mac 环境下推荐 [Valet](https://learnku.com/docs/laravel/8.x/valet/9358)，以上推荐均为可免费使用的环境，以上推荐环境搭建请[查看教程](/guide/env)
 
 ### 后台管理

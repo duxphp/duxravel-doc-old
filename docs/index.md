@@ -43,6 +43,16 @@ $ composer create-project duxphp/ravelcms ./
 http://localhost
 ```
 
+如果发现安装速度慢请使用国内加速，仍选其一执行：
+
+```
+$ composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+
+$ composer config -g repos.packagist composer https://php.cnpkg.org
+
+$ composer config -g repo.packagist composer https://packagist.phpcomposer.com
+```
+
 更多环境配置方式请参考 [laravel 环境文档](https://learnku.com/docs/laravel/8.x/installation/9354#pretty-urls)
 
 ## 问题反馈
