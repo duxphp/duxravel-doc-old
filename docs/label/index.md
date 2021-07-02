@@ -1,16 +1,12 @@
 ---
-title: 基础标签
-order: 0
-toc: menu
-nav:
-  title: 模板
-  path: /label
-  order: 5
+title: 基础标签 order: 0 toc: menu nav:
+title: 模板 path: /label order: 5
 ---
 
 ## 基础说明
 
-标签使用 laravel 的 [badge 模板](https://learnku.com/docs/laravel/8.x/blade/9377) 标签，您可以查看该文档使用常规的操作，web 前台模板放置在 `public/theme` 目录内，请根据后台设置来设置默认模板目录。
+标签使用 laravel 的 [badge 模板](https://learnku.com/docs/laravel/8.x/blade/9377) 标签，您可以查看该文档使用常规的操作，web 前台模板放置在 `public/theme`
+目录内，请根据后台设置来设置默认模板目录。
 
 ## 模板继承
 
@@ -29,6 +25,8 @@ nav:
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{$meta->title}}</title>
+    <meta name="Keywords" content="{{$meta->keywords}}" />
+    <meta name="Description" content="{{$meta->description}}" />
     <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
@@ -103,4 +101,14 @@ nav:
 
 <p>{{$item->name}}</p>
 @endforeach
+```
+
+## 标题关键词
+
+每个页面均可使用该标签统一调用。
+
+```html
+<title>{{$meta->title}}</title>
+<meta name="Keywords" content="{{$meta->keywords}}" />
+<meta name="Description" content="{{$meta->description}}" />
 ```
