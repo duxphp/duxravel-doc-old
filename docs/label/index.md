@@ -1,6 +1,11 @@
 ---
-title: 基础标签 order: 0 toc: menu nav:
-title: 模板 path: /label order: 5
+title: 基础标签
+order: 0
+toc: menu
+nav:
+  title: 模板
+  path: /label
+  order: 5
 ---
 
 ## 基础说明
