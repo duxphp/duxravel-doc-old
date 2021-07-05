@@ -117,3 +117,11 @@ nav:
 <meta name="Keywords" content="{{$meta->keywords}}" />
 <meta name="Description" content="{{$meta->description}}" />
 ```
+
+## 模板路径
+
+可以使用 theme 变量函数调用当前模板内资源。
+
+```html
+<script src="{{$theme('js/app.js')}}"></script>
+```
