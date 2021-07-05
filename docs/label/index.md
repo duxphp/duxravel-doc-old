@@ -54,9 +54,18 @@ nav:
 
 模板文件名为 `index.blade.php`。
 
-```html
-@extends('layout') @section('header', '这里是头部插槽') @section('content')
-这里是内容插槽 @endsection @section('footer') 这里是底部插槽 @endsection
+```blade
+@extends('layout')
+
+@section('header', '这里是头部插槽')
+
+@section('content')
+这里是内容插槽
+@endsection
+
+@section('footer')
+这里是底部插槽
+@endsection
 ```
 
 其中 `layout` 为 `layout.blade.php` 文件的文件名。
@@ -67,13 +76,13 @@ nav:
 
 开发者可以使用变量标签进行内容输出，变量为页面定义的变量。
 
-```html
+```blade
 你好，{{ $name }}
 ```
 
 二维数组标签
 
-```html
+```blade
 你好，{{ $item->title }}
 ```
 
@@ -81,7 +90,7 @@ nav:
 
 如果变量内容为 html 使用该标签进行输出。
 
-```html
+```blade
 {!! $content !!}
 ```
 
@@ -89,20 +98,33 @@ nav:
 
 常用判断标签。
 
-```html
-@if ($num == 1) 如果数量等于1 @elseif ($num > 1) 如果数量大于1 @else
-如果数量小于1 @endif
+```blade
+@if ($num == 1)
+如果数量等于1
+@elseif ($num > 1)
+如果数量大于1
+@else
+如果数量小于1
+@endif
 ```
 
 ## 循环标签
 
 用于数组或对象数组循环。
 
-```html
+```blade
 @foreach ($items as $item)
 <p>{{$item->name}}</p>
-@endforeach @foreach ($items as $item) @if ($loop->first) 循环第一个显示 @endif
-@if ($loop->last) 循环最后一个显示 @endif
+@endforeach
+
+@foreach ($items as $item)
+@if ($loop->first)
+  循环第一个显示
+@endif
+
+@if ($loop->last)
+  循环最后一个显示
+@endif
 
 <p>{{$item->name}}</p>
 @endforeach
@@ -112,7 +134,7 @@ nav:
 
 每个页面均可使用该标签统一调用。
 
-```html
+```blade
 <title>{{$meta->title}}</title>
 <meta name="Keywords" content="{{$meta->keywords}}" />
 <meta name="Description" content="{{$meta->description}}" />
@@ -122,7 +144,7 @@ nav:
 
 可以使用 theme 变量函数调用当前模板内资源。
 
-```html
+```blade
 <script src="{{$theme('js/app.js')}}"></script>
 ```
 
@@ -130,7 +152,7 @@ nav:
 
 可以使用 theme 变量函数调用当前模板内资源。
 
-```html
+```blade
 <script src="{{$theme('js/app.js')}}"></script>
 <link rel="stylesheet" href="{{$theme('css/style.css')}}" />
 ```
