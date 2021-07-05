@@ -37,8 +37,7 @@ toc: menu
   "license": "MIT", // 开源协议
   "require": {
     // 依赖库
-    "php": ">=7.4",
-    "duxphp/duxravel-app": "<2.0.0" // 核心框架
+    "php": ">=7.4"
   },
   "extra": {
     "duxravel": {
@@ -120,8 +119,7 @@ $ composer require xxxx/xxxx
   "license": "MIT", // 开源协议
   "require": {
     // 依赖库
-    "php": ">=7.4",
-    "duxphp/duxravel-app": "<2.0.0" // 核心框架
+    "php": ">=7.4"
   },
   "autoload": {
     "psr-4": {
