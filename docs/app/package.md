@@ -38,12 +38,7 @@ toc: menu
   "require": {
     // 依赖库
     "php": ">=7.4",
-    "duxphp/duxravel-app": "<2.0" // 核心框架
-  },
-  "autoload": {
-    "psr-4": {
-      "Modules\\": "src"
-    }
+    "duxphp/duxravel-app": "<2.0.0" // 核心框架
   },
   "extra": {
     "duxravel": {
@@ -126,7 +121,12 @@ $ composer require xxxx/xxxx
   "require": {
     // 依赖库
     "php": ">=7.4",
-    "duxphp/duxravel-app": "<2.0" // 核心框架
+    "duxphp/duxravel-app": "<2.0.0" // 核心框架
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\": "src"
+    }
   },
   "extra": {
     "branch-alias": {},
