@@ -124,4 +124,5 @@ nav:
 
 ```html
 <script src="{{$theme('js/app.js')}}"></script>
+<link rel="stylesheet" href="{{$theme('css/style.css')}}" />
 ```
