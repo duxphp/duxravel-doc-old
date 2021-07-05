@@ -124,5 +124,13 @@ nav:
 
 ```html
 <script src="{{$theme('js/app.js')}}"></script>
+```
+
+## 模板路径
+
+可以使用 theme 变量函数调用当前模板内资源。
+
+```html
+<script src="{{$theme('js/app.js')}}"></script>
 <link rel="stylesheet" href="{{$theme('css/style.css')}}" />
 ```
