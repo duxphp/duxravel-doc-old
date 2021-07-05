@@ -20,7 +20,7 @@ toc: menu
 
 ### 建立 git 仓库
 
-新建 git 仓库，在仓库模板中建立 `package.json` 文件，并按照以下模板修改。
+新建 git 仓库，在仓库模板中建立 `composer.json` 文件，并按照以下模板修改。
 
 ```json
 {
@@ -39,6 +39,11 @@ toc: menu
     // 依赖库
     "php": ">=7.4",
     "duxphp/duxravel-app": "<2.0" // 核心框架
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\": "src"
+    }
   },
   "extra": {
     "duxravel": {
@@ -60,7 +65,7 @@ toc: menu
   <li>Route</li>
   <li>Service</li>
   <li>View</li>
-  <li>package.json</li>
+  <li>composer.json</li>
 </ul>
 </Tree>
 
@@ -103,7 +108,7 @@ $ composer require xxxx/xxxx
 
 ### 建立 git 仓库
 
-新建 git 仓库，在仓库模板中建立 `package.json` 文件，并按照以下模板修改。
+新建 git 仓库，在仓库模板中建立 `composer.json` 文件，并按照以下模板修改。
 
 ```json
 {
@@ -187,7 +192,7 @@ $ composer require xxxx/xxxx
       </li>
     </ul>
   </li>
-  <li>package.json</li>
+  <li>composer.json</li>
 </ul>
 </Tree>
 
