@@ -39,6 +39,11 @@ $ mkdir library && cd library
 // 安装项目
 $ composer create-project duxphp/ravelcms ./
 
+// 加入伪静态规则
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
 // 启动web服务访问安装向导
 http://localhost
 ```
@@ -53,7 +58,7 @@ $ composer config -g repos.packagist composer https://php.cnpkg.org
 $ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ```
 
-更多环境配置方式请参考 [laravel 环境文档](https://learnku.com/docs/laravel/8.x/installation/9354#pretty-urls)
+更多环境配置方式请参考 [环境文档](/guide/env)
 
 ## 问题反馈
 
