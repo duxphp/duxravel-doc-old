@@ -37,7 +37,7 @@ features:
 $ mkdir library && cd library
 
 // 安装项目
-$ composer create-project duxphp/ravelcms ./
+$ composer create-project duxphp/ravelcms
 
 // 加入伪静态规则
 location / {

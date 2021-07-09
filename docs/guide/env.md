@@ -41,7 +41,7 @@ $ composer self-update
 在 composer 命令行中执行以下命令进行系统安装，该命令会将系统安装在当前网站目录。
 
 ```shell
-$ composer create-project duxphp/ravelcms ./
+$ composer create-project duxphp/ravelcms
 ```
 
 - 如果安装途中下载缓慢请切换 composer 源为阿里云镜像加快下载。
@@ -118,7 +118,7 @@ location / {
 进入站点根目录打开终端执行以下命令进行系统安装：
 
 ```shell
-$ composer create-project duxphp/ravelcms ./
+$ composer create-project duxphp/ravelcms
 ```
 
 - 如果安装途中下载缓慢请切换 composer 源为阿里云镜像加快下载。

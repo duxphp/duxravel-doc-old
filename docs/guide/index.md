@@ -49,7 +49,7 @@ Composer version 2.1.3
 $ mkdir library && cd library
 
 // 安装项目
-$ composer create-project duxphp/ravelcms ./
+$ composer create-project duxphp/ravelcms
 
 // 启动web服务访问安装向导
 http://localhost
