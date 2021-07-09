@@ -15,6 +15,10 @@ export default defineConfig({
   navs: [
     null,
     {
+      title: '产品社区',
+      path: 'https://support.qq.com/products/331847',
+    },
+    {
       title: 'GitHub',
       path: 'https://github.com/duxphp/CMSRavel',
     },
