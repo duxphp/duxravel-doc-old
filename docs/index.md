@@ -66,9 +66,10 @@ $ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 ## 问题反馈
 
-请访问 [产品社区](https://support.qq.com/products/331847) 或者加入 qq 群交流
+请访问 [产品社区](https://support.qq.com/products/331847) 或者加入 qq 群、微信群交流
 
 <div>
-  <img data-type="qq" src="https://duxphp.github.io/duxravel-doc/images/qq.jpg" width="300" />
+  <img data-type="qq" src="/images/qq.jpg" width="300" />
+  <img data-type="wechat" src="/images/wechat.jpg" width="300" />
   
 </div>
