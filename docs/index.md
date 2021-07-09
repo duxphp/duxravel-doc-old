@@ -70,6 +70,6 @@ $ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 <div>
   <img data-type="qq" src="/images/qq.jpg" width="300" />
-  <img data-type="wechat" src="/images/wechat.jpg" width="300" />
+  <img data-type="wechat" src="/images/wechat.png" width="300" />
   
 </div>
