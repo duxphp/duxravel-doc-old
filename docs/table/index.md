@@ -114,7 +114,7 @@ public function export()
 
 ### 设置主键
 
-针对数据模型组件会自动获取表主键，针对数据集合需要手动指定主键便于批量等操作
+针对数据模型组件会自动获取表主键，针对数据集合需要手动指定主键便于批量等操作。
 
 ```php
 $table->key('name');
@@ -122,7 +122,7 @@ $table->key('name');
 
 ### 分页数量
 
-设置每页表单需要显示的分页数量，默认显示 20 条
+设置每页表单需要显示的分页数量，默认显示 20 条。
 
 ```php
 $table->limit(20);
@@ -130,8 +130,38 @@ $table->limit(20);
 
 ### AJAX 数据
 
-某些特殊展示如选择器布局、弹窗布局需要使用 AJAX 进行分页，则整个表格数据需要使用动态加载
+某些特殊展示如选择器布局、弹窗布局需要使用 AJAX 进行分页，则整个表格数据需要使用动态加载。
 
 ```php
 $table->ajax(string $url = '');
+```
+
+### 树形表格
+
+需要使用树形模型扩展后可以使用该方法在表格内展现树形数据。
+
+```php
+/**
+ * $field 上级字段id
+ * $sortable 排序处理路由
+ */
+$table->tree(string $field = 'parent_id', string $sortable = '')
+```
+
+同时需要设置列表排序规则，并设置排序列：
+
+```php
+$table->model()->defaultOrder();
+
+$table->column('分类', 'name')->drag();
+```
+
+在控制器内加入排序接口方法和增加路由即可：
+
+```php
+    use \Duxravel\Core\Traits\TableSortable;
+```
+
+```php
+Route::manage(className)->append('sort')->make();
 ```
