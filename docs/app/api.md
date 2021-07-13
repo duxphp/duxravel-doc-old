@@ -282,7 +282,7 @@ md5('参数拼接字符串' + '&timestamp=当前请求时间戳' + '&key=后台S
 
 签名时请保证请求时间戳在 `headers` 中的 `Date` 参数一致，时差过大将会验证失败。
 
-参数拼接请将 `query` 与 `formdata` 或 `json` 中的对象或者数组过滤空值并按照 `ksort` 进行排序并使用 `=` 拼接键和值 `&` 拼接多个参数，如下：
+参数拼接请将 `query` 与 `formdata` 或 `json` 中的对象或者数组按照 `ksort` 进行排序并使用 `=` 拼接键和值 `&` 拼接多个参数，如下：
 
 ```http request
 key1=value1&key2=value2
@@ -317,10 +317,7 @@ let param = {};
 // 加入 query 参数
 let queryParams = pm.request.url.query;
 queryParams.each(item => {
-  if (item.value !== '') {
-    // 非空参数值的参数才参与签名
-    param[item.key] = item.value;
-  }
+  param[item.key] = item.value;
 });
 
 // 加入 body 参数
@@ -354,12 +351,10 @@ if (pm.request.body) {
     default:
       break;
   }
+
   if (formData) {
     formData.each(item => {
-      if (item.value !== '') {
-        // 非空参数值的参数才参与签名
-        param[item.key] = item.value;
-      }
+      param[item.key] = item.value;
     });
   }
 }
