@@ -278,7 +278,7 @@ post|get http(s)://localhost/api/应用名/类名/方法名/参数...
 md5('url=当前请求完整url' + '&timestamp=当前请求时间戳' + '&key=后台SECRET_KEY')
 ```
 
-签名后请将签名结果转换为大写，时请保证请求时间戳在 `headers` 中的 `Content-Date` 参数一致，时差过大将会验证失败。
+签名后请将签名结果转换为大写，并保证请求时间戳在 `headers` 中的 `Content-Date` 参数一致，时差过大将会验证失败。
 
 ### 签名示例
 
