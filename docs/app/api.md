@@ -264,7 +264,7 @@ post|get http(s)://localhost/api/应用名/类名/方法名/参数...
 | ------------- | -------------------------------- | ----------------------------------- |
 | Accept        | application/json                 | 返回类型                            |
 | Content-MD5   | 1ED5ED64ED37F4F73E8F018187AF450E | 数据签名                            |
-| Date          | 1624942695                       | 当前请求时间戳                      |
+| Content-Date  | 1624942695                       | 当前请求时间戳                      |
 | AccessKey     | 123456                           | 后台创建的 SECRET_ID                |
 | Authorization | Bearer xxxx                      | 会员用户授权 token (需会员应用支持) |
 
@@ -280,7 +280,7 @@ post|get http(s)://localhost/api/应用名/类名/方法名/参数...
 md5('参数拼接字符串' + '&timestamp=当前请求时间戳' + '&key=后台SECRET_KEY')
 ```
 
-签名时请保证请求时间戳在 `headers` 中的 `Date` 参数一致，时差过大将会验证失败。
+签名时请保证请求时间戳在 `headers` 中的 `Content-Date` 参数一致，时差过大将会验证失败。
 
 参数拼接请将 `query` 与 `formdata` 或 `json` 中的对象或者数组按照 `ksort` 进行排序并使用 `=` 拼接键和值 `&` 拼接多个参数，如下：
 
@@ -406,7 +406,7 @@ headers.upsert({
   value: sign,
 });
 headers.upsert({
-  key: 'Date',
+  key: 'Content-Date',
   value: timestamp.toString(),
 });
 headers.upsert({
