@@ -1,7 +1,5 @@
 ---
-title: Api 接口
-order: 4
-toc: menu
+title: Api 接口 order: 4 toc: menu
 ---
 
 ## 基础说明
@@ -274,33 +272,13 @@ post|get http(s)://localhost/api/应用名/类名/方法名/参数...
 
 ### 数据签名
 
-为了保证提交的数据不被篡改需要对 `query` 和 `body` 参数进行拼接并签名并传入 `Content-MD5` 中，签名基本格式如下：
+为了保证提交的数据不被篡改，请使用 `https` 作为 api 服务， 请将请求 url、时间戳与接口秘钥进行签名并传入 `Content-MD5` 中，签名基本格式如下：
 
 ```http request
-md5('参数拼接字符串' + '&timestamp=当前请求时间戳' + '&key=后台SECRET_KEY')
+md5('url=当前请求完整url' + '&timestamp=当前请求时间戳' + '&key=后台SECRET_KEY')
 ```
 
 签名时请保证请求时间戳在 `headers` 中的 `Content-Date` 参数一致，时差过大将会验证失败。
-
-参数拼接请将 `query` 与 `formdata` 或 `json` 中的对象或者数组按照 `ksort` 进行排序并使用 `=` 拼接键和值 `&` 拼接多个参数，如下：
-
-```http request
-key1=value1&key2=value2
-```
-
-如果请求参数为嵌套数组请将嵌套数组内的数据也代入参数拼接中如下：
-
-```json
-{
-  "key1": {
-    "subkey1": "subvalue1",
-    "subkey2": "subvalue2"
-  },
-  "key2": "value2"
-}
-
-key1=subkey1=subvalue1&subkey2=subvalue=2&key2=value2
-```
 
 ### 签名示例
 
@@ -310,90 +288,11 @@ key1=subkey1=subvalue1&subkey2=subvalue=2&key2=value2
 // 获取预先设置为环境变量的 APPKEY
 let key = pm.environment.get('SECRET_KEY');
 let token = pm.environment.get('TOKEN');
-
-// 存放所有需要用来签名的参数
-let param = {};
-
-// 加入 query 参数
-let queryParams = pm.request.url.query;
-queryParams.each(item => {
-  param[item.key] = item.value;
-});
-
-// 加入 body 参数
-if (pm.request.body) {
-  let formData;
-  switch (pm.request.body.mode) {
-    case 'formdata':
-      formData = pm.request.body.formdata;
-      break;
-    case 'urlencoded':
-      formData = pm.request.body.urlencoded;
-      break;
-    case 'raw':
-      // 如果请求格式为 json 数据则进行解析
-      let contentType = pm.request.headers.get('content-type');
-      if (
-        contentType &&
-        pm.request.body.raw &&
-        contentType.toLowerCase().indexOf('application/json') !== -1
-      ) {
-        try {
-          let jsonData = JSON.parse(pm.request.body.raw);
-          for (let key in jsonData) {
-            param[key] = jsonData[key];
-          }
-        } catch (e) {
-          console.log('请求 body 不是 JSON 格式');
-        }
-      }
-      break;
-    default:
-      break;
-  }
-
-  if (formData) {
-    formData.each(item => {
-      param[item.key] = item.value;
-    });
-  }
-}
-
-// 按键名排序
-let ksort = function(o) {
-  let sorted = {},
-    keys = Object.keys(o);
-  keys.sort();
-  keys.forEach(key => {
-    sorted[key] = o[key];
-  });
-  return sorted;
-};
-
-// 拼接多维数组
-let paramConver = function(data) {
-  data = ksort(data);
-  let tmp = [];
-  for (let i in data) {
-    if (data[i] === '') {
-      continue;
-    }
-    if (data[i] instanceof Array || data[i] instanceof Object) {
-      data[i] = paramConver(data[i]);
-    }
-    tmp.push(i + '=' + data[i]);
-  }
-  return tmp.join('&');
-};
-
-let signString = paramConver(param);
-
-// 加入当前时间戳
-let timestamp = Math.round(new Date().getTime() / 1000);
-signString = signString + '&timestamp=' + timestamp;
+let url = pm.request.url;
 
 // 数据签名
-signString = signString + '&key=' + key;
+let timestamp = Math.round(new Date().getTime() / 1000);
+signString = 'url=' + url + '&timestamp=' + timestamp + '&key=' + key;
 let sign = CryptoJS.MD5(signString)
   .toString()
   .toUpperCase();
